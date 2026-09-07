@@ -1,0 +1,377 @@
+<style>
+  :root {
+    --verde: #1c3024;
+    --verde-oscuro: #10201a;
+    --dorado: #a9822f;
+    --dorado-claro: #cba556;
+    --crema: #f6f1e6;
+    --marfil: #fffdf8;
+    --texto: #221f18;
+    --texto-suave: #5a5644;
+    --borde: #d8cba8;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Work Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: var(--crema);
+    color: var(--texto);
+    line-height: 1.5;
+  }
+
+  main { max-width: 720px; margin: 0 auto; }
+
+  .hero-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+  }
+  @media (min-width: 620px) {
+    .hero-photo { height: 320px; }
+  }
+
+  .footer-photo-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 0 1.5rem;
+    margin-top: 0.5rem;
+  }
+  .footer-photo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--borde);
+    display: block;
+  }
+
+  .age-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--verde-oscuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .age-gate-panel {
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+    color: var(--crema);
+  }
+
+  .age-gate-logo {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+
+  .age-gate-title {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    margin: 0 0 0.4rem;
+  }
+
+  .age-gate-sub {
+    font-size: 0.9rem;
+    color: var(--dorado-claro);
+    margin: 0 0 1.3rem;
+  }
+
+  .age-gate-form { display: flex; flex-direction: column; gap: 0.9rem; }
+
+  .dob-inputs { display: flex; gap: 0.6rem; }
+
+  .dob-inputs input {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.7rem 0.4rem;
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    background: var(--marfil);
+    color: var(--texto);
+  }
+
+  .age-gate-btn {
+    padding: 0.9rem;
+    background: var(--dorado);
+    color: var(--verde-oscuro);
+    border: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .age-gate-btn:hover { background: var(--dorado-claro); }
+
+  .age-gate-remember {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    text-align: left;
+    color: var(--crema);
+    opacity: 0.9;
+  }
+  .age-gate-remember input { width: auto; margin-top: 0.2rem; }
+
+  .age-gate-footnote {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin-top: 1.3rem;
+    line-height: 1.4;
+  }
+
+  .site-header {
+    background: var(--verde);
+    color: var(--crema);
+    padding: 2.6rem 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .brand-logo {
+    max-width: 340px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .brand-sub {
+    margin: 0.25rem 0 0;
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+    color: var(--dorado-claro);
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1rem auto 0.6rem;
+    max-width: 220px;
+  }
+  .divider span:not(.divider-mark) {
+    flex: 1;
+    height: 1px;
+    background: var(--dorado);
+    opacity: 0.6;
+  }
+  .divider-mark { color: var(--dorado); font-size: 0.7rem; }
+
+  .brand-place {
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--crema);
+    opacity: 0.85;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 2rem 1.5rem 0.5rem;
+  }
+  .hero-line {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem;
+  }
+  .hero-note {
+    font-size: 0.83rem;
+    color: var(--texto-suave);
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    padding: 0 1.5rem;
+    margin: 1.8rem 0 1rem;
+  }
+
+  .product-grid {
+    display: grid;
+    gap: 1rem;
+    padding: 0 1.5rem;
+  }
+
+  .product-card {
+    background: var(--marfil);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .product-card h3 {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+  }
+
+  .product-desc {
+    margin: 0 0 0.4rem;
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+  }
+
+  .product-price {
+    margin: 0;
+    color: var(--dorado);
+    font-weight: 600;
+  }
+
+  .qty-control {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .qty-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--verde);
+    background: transparent;
+    color: var(--verde);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .qty-btn:active { background: var(--verde); color: var(--crema); }
+
+  .qty-value { min-width: 1.2rem; text-align: center; font-weight: 600; }
+
+  .checkout { padding: 0 1.5rem 2rem; }
+
+  .cart-summary {
+    background: var(--marfil);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .cart-empty { margin: 0; font-size: 0.85rem; color: #7a7460; }
+
+  .cart-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding: 0.2rem 0;
+  }
+
+  .order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .order-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    gap: 0.3rem;
+  }
+
+  .order-form input,
+  .order-form select,
+  .order-form textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    background: var(--marfil);
+    color: var(--texto);
+  }
+
+  .checkbox-line {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .checkbox-line input { width: auto; }
+
+  .total-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding-top: 0.4rem;
+  }
+
+  .total-final {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    border-top: 1px solid var(--borde);
+    padding-top: 0.6rem;
+  }
+
+  .btn-pagar {
+    margin-top: 0.5rem;
+    padding: 0.9rem;
+    background: var(--verde);
+    color: var(--crema);
+    border: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .btn-pagar:disabled { background: #b9b39c; cursor: not-allowed; }
+  .btn-pagar:not(:disabled):hover { background: var(--verde-oscuro); }
+
+  .error-msg { color: #a3372f; font-size: 0.85rem; min-height: 1.2em; margin: 0.3rem 0 0; }
+
+  .site-footer {
+    background: var(--verde-oscuro);
+    color: var(--crema);
+    text-align: center;
+    padding: 1.6rem 1.5rem 2rem;
+  }
+  .site-footer p { margin: 0.3rem 0; font-family: var(--font-display); font-size: 1rem; }
+  .site-footer .legal {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    opacity: 0.75;
+    max-width: 480px;
+    margin: 0.6rem auto 0;
+  }
+
+  a { color: var(--dorado); }
+
+  @media (min-width: 620px) {
+    .product-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
